@@ -12,6 +12,7 @@ A beginner-friendly to-do list application built with HTML, CSS, and JavaScript.
 - ✅ Clean, modern UI with gradient background
 - ✅ **Fully responsive design** - works perfectly on mobile & desktop
 - ✅ Touch-friendly buttons and interactions
+- ✅ **Dark mode toggle** - switch between light and dark themes
 
 ## 🚀 How to Use
 

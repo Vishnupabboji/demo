@@ -4,9 +4,16 @@ const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
 const totalTasksSpan = document.getElementById('totalTasks');
 const completedTasksSpan = document.getElementById('completedTasks');
+const themeToggle = document.getElementById('themeToggle');
 
 // Load tasks from localStorage
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+// Load theme preference
+let isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+// Apply initial theme
+applyTheme();
 
 // Render tasks on page load
 renderTasks();
@@ -16,6 +23,7 @@ addBtn.addEventListener('click', addTask);
 taskInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') addTask();
 });
+themeToggle.addEventListener('click', toggleTheme);
 
 // Add task function
 function addTask() {
@@ -107,4 +115,29 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+// Theme toggle function
+function toggleTheme() {
+    isDarkMode = !isDarkMode;
+    applyTheme();
+    saveThemePreference();
+}
+
+// Apply theme to document
+function applyTheme() {
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        themeToggle.textContent = '☀️';
+        themeToggle.setAttribute('aria-label', 'Switch to light mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+        themeToggle.textContent = '🌙';
+        themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+    }
+}
+
+// Save theme preference to localStorage
+function saveThemePreference() {
+    localStorage.setItem('darkMode', isDarkMode);
 }
