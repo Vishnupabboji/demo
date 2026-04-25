@@ -10,7 +10,8 @@ A beginner-friendly to-do list application built with HTML, CSS, and JavaScript.
 - ✅ View task statistics (total & completed count)
 - ✅ Data persists using browser localStorage
 - ✅ Clean, modern UI with gradient background
-- ✅ Fully responsive design
+- ✅ **Fully responsive design** - works perfectly on mobile & desktop
+- ✅ Touch-friendly buttons and interactions
 
 ## 🚀 How to Use
 
